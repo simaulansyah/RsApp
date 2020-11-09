@@ -53,9 +53,9 @@
                                 <td><?= $m['icon']; ?></td>
                                 <td><?= $m['is_active']; ?></td>
                                 <td class="text-right">
-                                    <form action="<?= base_url('menu/editSub') ?>" method="POST">
+                               
                                         <input type="hidden" value="<?= $m['id']; ?>" name="daldelSub">
-                                        <button class="btn btn-warning" id="editSub"> <i class="fa fa-edit"></i>
+                                        <button class="btn btn-warning" id="editSub" data-toggle="modal" data-target="#editMenuModal<?= $m ['id']?>" > <i class="fa fa-edit"></i>
                                         </button>
                                     </form>
                                 </td>
@@ -133,18 +133,63 @@
             </div>
         </div>
 
+<!-- edit sub menu modal -->
+
+<?php $no = 0; foreach ($submenu as $m ): $no++; ?>
+<div class="modal fade" id="editMenuModal<?= $m ['id']?>" tabindex="-1" aria-labelledby="subMenuModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="subMenuModalLabel">Edit New subMenu</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <Form action="<?= base_url('menu/editSub'); ?>" method="POST">
+                        <div class="modal-body">
+                        <input type="hidden" name="id" id="id" value="<?= $m['id']?>" >
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="title" name="title" value="<?= $m['title']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <select name="menu_id" id="menu_id" class="form-control">
+                                    <?php foreach ($menu as $z) : ?> 
+                                    <!-- get selected option -->
+                                    <option <?php if($z['menu'] == $m['menu'] ){ echo 'selected="selected"'; } ?> value="<?= $z['id']; ?>"> <?= $z['menu']; ?> </option> 
+
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="url" name="url" value="<?= $m['url']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="icon" name="icon" value="<?= $m['icon'];?>">
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+
+                                    <input class="form-check-input" type="checkbox" value="1" name="is_active" id="is_active" checked>
+                                    <label class="form-check-label" for="is_active">
+                                        Active ?
+                                    </label>
+                                </div>
+                            </div>
 
 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </div>
+                    </Form>
+                </div>
+            </div>
+        </div>
+        <?php endforeach?>
 
 
-
-
-
-
-
-
-
-
+<!-- akhir edit sub menu modal -->
 
 
 

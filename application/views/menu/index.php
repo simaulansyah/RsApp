@@ -43,11 +43,10 @@
                                 <td><?= $m['menu']; ?></td>
 
                                 <td class="text-right">
-                                    <form action="" method="POST">
-                                        <input type="hidden" value="<?= $m['id']; ?>" name="editMenu">
-                                        <button class="btn btn-warning" data-toggle="modal" data-target="#exampleModal"> <i class="fa fa-edit"></i>
+                                <input type="hidden" id="field1" value="<?= $m['id'];?>">
+                                        <button class="btn btn-warning" data-toggle="modal" data-target="#editmodal<?= $m['id'];?>"> <i class="fa fa-edit"></i>
                                         </button>
-                                    </form>
+                                   
                                 </td>
                                 <td>
                                     <form action="<?= base_url('menu/deleteMenu') ?>" method="POST">
@@ -62,7 +61,9 @@
                     </tbody>
                 </table>
 
-
+                
+                <!-- <button onclick="myFunction()">Click me</button>
+                <p id="demo"></p> -->
 
 
 
@@ -74,26 +75,34 @@
 
         <!-- modal edit -->
 
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <?php $no = 0; foreach($menu as $m ) : $no++; ?>
+        <div class="modal fade" id="editmodal<?= $m['id'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Data Menu</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                    <Form action="<?= base_url('menu/editMenu'); ?>" method="POST">
                     <div class="modal-body">
-                        <?= $id; ?>
+                    <div class="form-group">
+                    <input type="text" id="id" name="id" class="form-control" value="<?= $m['id'];?>">
+                    </div>
+                    <div class="form-group">
+                    <input type="text" id="menu" name="menu" class="form-control" value="<?= $m['menu'];?>">
+                    </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
+                        <?php endforeach; ?>
 
 
         <!-- modal menu -->
