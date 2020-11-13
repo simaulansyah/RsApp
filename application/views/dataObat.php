@@ -57,8 +57,8 @@
       <td><?= $ob['stok']; ?></td>
       <td><?= $ob['qty']; ?></td>
       <td>
-      <a href="edit" class="badge badge-primary">edit</a>
       <a href="detail" class="badge badge-success">detail</a>
+      <a href="<?= site_url("Apotek/editObat/" . $ob['id']); ?> " class="badge badge-primary">edit</a>
       <a href="<?php echo site_url("Apotek/hapusObat/" . $ob['id']);?>" class="badge badge-danger" onclick="return confirm('Delete content?');">hapus</a>
     </tr>
     <?php $i++; ?>
@@ -124,7 +124,7 @@
                                 <input type="text" class="form-control" id="foto" name="foto" placeholder="foto obat">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="lain-lain" name="lain-lain" placeholder="lain lain">
+                                <input type="text" class="form-control" id="keterangan" name="keterangan" placeholder="keterangan">
                             </div>
 
                         </div>

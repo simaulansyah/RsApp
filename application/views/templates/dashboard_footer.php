@@ -22,6 +22,14 @@
 
 
 
+
+
+
+</body>
+
+
+
+
 <script src="<?= base_url('vendor/jquery/jquery.min.js'); ?>"></script>
 <script src="<?= base_url('vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
 <script src="<?= base_url('vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
@@ -45,11 +53,22 @@
 } );
     </script>
 
+<script>
+$(document).ready(funtcion(){
+  $(document).on('click', '#select', function(){
+    var id = $(this).data('id');
+    var kode_obat = $(this).data('kode_obat');
+    var nama_obat = $(this).data('nama_obat');
+    var jenis_obat = $(this).data('jenis_obat');
+    $('#id').val(id);
+    $('#kode_obat').val(kode_obat);
+    $('#nama_obat').val(nama_obat);
+    $('#jenis_obat').val(jenis_obat);
 
 
 
-
-
-</body>
+  })
+})
+</script>
 
 </html>

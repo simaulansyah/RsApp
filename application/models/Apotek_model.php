@@ -48,5 +48,16 @@ class Apotek_model extends CI_Model
         }
 
     }
+    public function editMObat($id)
+    {
+       $query = $this->db->get_where('obat', array('id' => $id))->row();
+       return $query;
+    }
+    public function UpdateDataObat($data,$id)
+    {
+       $query = $this->db->update('obat', $data, array('id' => $id)); 
+       
+    }
+
  
 }
