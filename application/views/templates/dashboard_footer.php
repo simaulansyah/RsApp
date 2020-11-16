@@ -54,8 +54,24 @@
     </script>
 
 <script>
-$(document).ready(funtcion(){
-  $(document).on('click', '#select', function(){
+// $(document).ready(funtcion(){
+//   $(document).on('click', '#select', function(){
+//     var id = $(this).data('id');
+//     var kode_obat = $(this).data('kode_obat');
+//     var nama_obat = $(this).data('nama_obat');
+//     var jenis_obat = $(this).data('jenis_obat');
+//     $('#id').val(id);
+//     $('#kode_obat').val(kode_obat);
+//     $('#nama_obat').val(nama_obat);
+//     $('#jenis_obat').val(jenis_obat);
+
+
+//   })
+// })
+$(document).ready(function(){
+  $(document).on('click', '#select', function (){
+
+
     var id = $(this).data('id');
     var kode_obat = $(this).data('kode_obat');
     var nama_obat = $(this).data('nama_obat');
@@ -64,11 +80,13 @@ $(document).ready(funtcion(){
     $('#kode_obat').val(kode_obat);
     $('#nama_obat').val(nama_obat);
     $('#jenis_obat').val(jenis_obat);
-
+    $('#exampleModal').modal('hide');
 
 
   })
 })
+
+
 </script>
 
 </html>

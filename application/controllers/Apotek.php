@@ -174,7 +174,6 @@ class Apotek extends CI_Controller
                 'nama_obat' => $this->input->post('nama_obat'),
                 'jenis_obat' => $this->input->post('jenis'),
                 'konsumen' => $this->input->post('konsumen'),
-                'stok' => 0,
                 'qty' => $this->input->post('qty'),
                 'poto_obat' => $this->input->post('poto_obat'),
                 'harga_obat' => $this->input->post('harga_obat'),
@@ -187,9 +186,6 @@ class Apotek extends CI_Controller
             
         }
 
-       
-
-
-        
     }
+  
 }

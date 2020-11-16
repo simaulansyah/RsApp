@@ -59,5 +59,25 @@ class Apotek_model extends CI_Model
        
     }
 
+    public function getSuplier()
+    {
+        $query = $this->db->query('SELECT * FROM suplier');
+        $result = $query->result_array();
+        return $result;
+
+    }
+
+    public function update_stock_in($data)
+    {
+    
+        $qty = $data['stok'];
+        $kode_obat = $data['kode_obat'];
+
+        $sql = "UPDATE obat SET stok = stok + '$qty' WHERE kode_obat = '$kode_obat'";
+
+        $this->db->query($sql);
+
+    }
+
  
 }
